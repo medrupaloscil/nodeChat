@@ -1,0 +1,11 @@
+{
+    "name": "mini-Chat",
+    "version": "0.1.0",
+    "dependencies": {
+        "express": "~4.11.0",
+        "http": "~0.0.0",
+        "socket.io": "~1.3.7"
+    },
+    "author": "Medrupaloscil",
+    "description": "mini chat"
+}

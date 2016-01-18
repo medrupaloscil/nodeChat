@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Mini-Chat 3000</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	<input type="text" id="messageContent"><br>
+	<button id="sendMessage">Envoyer</button>
+	<ul id="messages">
+	</ul>
+
+	<script>
+
+		var socket = io();
+
+		socket.on('test', function(value) {
+			$('body').prepend('<h1>'+value+'</h1>')
+		});
+
+		socket.on('newMessage', function(value) {
+			$('#messages').prepend('<li>'+value+'</li>');
+		})
+
+		$('#sendMessage').click(function() {
+			var content = $('#messageContent').val();
+			socket.emit('sendMessage', content);
+			$('#messageContent').val('');
+		});
+	</script>
+</body>
+</html>
